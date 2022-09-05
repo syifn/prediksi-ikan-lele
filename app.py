@@ -57,10 +57,11 @@ def predict():
     tahun = int(request.form['Tahun'])
     luas = int(request.form['Luas'])
     jumlah = int(request.form['Jumlah'])
+    berat = int(request.form['Berat'])
     
     #nentuin ukuran
     
-    return render_template('hasil.html', hasil = output, year = tahun, width = luas, total = jumlah)
+    return render_template('hasil.html', hasil = output, year = tahun, width = luas, total = jumlah, weight=berat)
 
 if __name__ == '__main__':
     app.run(debug = True)
