@@ -32,7 +32,7 @@ def predict():
     hitung = np.array([[Tahun, Luas, Jumlah, Berat]])
     
     prediction = model.predict(hitung)
-    hasil_pred = round(prediction[0], 3)
+    hasil_pred = round(prediction[0], 4)
     
     def ton(value):
         str_value = str(value)
@@ -63,7 +63,7 @@ def predict():
     
     #nentuin ukuran
     
-    return render_template('hasil.html', hasil = output, year = tahun, width = luas, total = jumlah, weight=berat)
+    return render_template('hasil.html', hasil = output, year = tahun, width = luas, total = jumlah, weight = berat)
 
 if __name__ == '__main__':
     app.run(debug = True)
