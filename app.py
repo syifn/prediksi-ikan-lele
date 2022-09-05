@@ -1,3 +1,4 @@
+from logging.handlers import BaseRotatingHandler
 from flask import Flask, render_template, request
 import pandas as pd
 import numpy as np
@@ -26,8 +27,9 @@ def predict():
     Tahun = float(request.form['Tahun'])
     Luas = float(request.form['Luas'])
     Jumlah = float(request.form['Jumlah'])
+    Berat = float(request.form['Berat'])
 
-    hitung = np.array([[Tahun, Luas, Jumlah]])
+    hitung = np.array([[Tahun, Luas, Jumlah, Berat]])
     
     prediction = model.predict(hitung)
     hasil_pred = round(prediction[0], 3)
