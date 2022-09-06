@@ -26,13 +26,13 @@ def predict():
     
     Tahun = float(request.form['Tahun'])
     Luas = float(request.form['Luas'])
-    Jumlah = float(request.form['Jumlah'])
-    Berat = float(request.form['Berat'])
+    JumlahP = float(request.form['JumlahP'])
+    JumlahA = float(request.form['JumlahA'])
 
-    hitung = np.array([[Tahun, Luas, Jumlah, Berat]])
+    hitung = np.array([[Tahun, Luas, JumlahP, JumlahA]])
     
     prediction = model.predict(hitung)
-    hasil_pred = round(prediction[0], 4)
+    hasil_pred = round(prediction[0], 3)
     
     def ton(value):
         str_value = str(value)
@@ -58,12 +58,13 @@ def predict():
     #versi int
     tahun = int(request.form['Tahun'])
     luas = int(request.form['Luas'])
-    jumlah = int(request.form['Jumlah'])
-    berat = int(request.form['Berat'])
+    jumlahP = int(request.form['JumlahP'])
+    jumlahA = int(request.form['JumlahA'])
+    
     
     #nentuin ukuran
     
-    return render_template('hasil.html', hasil = output, year = tahun, width = luas, total = jumlah, weight = berat)
+    return render_template('hasil.html', hasil = output, year = tahun, width = luas, totalP = jumlahP, totalA = jumlahA)
 
 if __name__ == '__main__':
     app.run(debug = True)
